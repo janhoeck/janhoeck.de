@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui'
 import Link from 'next/link'
+import { ExternalLink, Github } from 'lucide-react'
 
 export interface ReferenceCardProps {
   className?: string
@@ -29,21 +30,27 @@ export const ReferenceCard = (props: ReferenceCardProps) => {
       </CardHeader>
       <CardFooter className='gap-3 max-sm:flex-col max-sm:items-stretch'>
         {liveDemoUrl && (
-          <Button>
+          <Button asChild>
             <Link
               href={liveDemoUrl}
               target='_blank'
+              rel='noopener noreferrer'
             >
+              <ExternalLink />
               Demo
             </Link>
           </Button>
         )}
         {githubUrl && (
-          <Button variant='outline'>
+          <Button
+            asChild
+            variant='outline'
+          >
             <Link
               href={githubUrl}
               target='_blank'
             >
+              <Github />
               Github
             </Link>
           </Button>
