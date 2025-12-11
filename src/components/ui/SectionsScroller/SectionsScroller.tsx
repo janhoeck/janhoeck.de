@@ -43,9 +43,9 @@ const SectionsScrollerInternal = (props: SectionsScrollerProps) => {
   }
 
   return (
-    <div className={twMerge('relative h-full w-full overflow-hidden', className)}>
+    <div className={twMerge('relative', className)}>
       <div
-        className='h-full transition-transform duration-700 ease-in-out'
+        className='transition-transform duration-700 ease-in-out'
         style={{
           transform: `translate3d(0, -${activeSectionIndex * 100}vh, 0)`,
         }}

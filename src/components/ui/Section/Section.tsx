@@ -19,13 +19,13 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>((props, ref) => 
   return (
     <div
       className={twMerge(
-        'relative flex min-h-screen w-full justify-center overflow-hidden py-4 pl-8 pr-10 container mx-auto',
+        'relative flex min-h-dvh w-dvw justify-center overflow-hidden py-4 pl-8 pr-10 container mx-auto',
         className
       )}
       ref={ref}
       {...restProps}
     >
-      <div className='w-full max-w-[1440px]'>{children}</div>
+      <div className='w-dvw max-w-[1440px]'>{children}</div>
     </div>
   )
 })
