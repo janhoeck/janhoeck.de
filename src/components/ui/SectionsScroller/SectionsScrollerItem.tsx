@@ -23,7 +23,6 @@ export const SectionsScrollerItem = (props: SectionsScrollerItemProps) => {
   const touchStartScrollTop = useRef<number>(0)
   const wheelOverscrollAccumulator = useRef<number>(0)
   const lastWheelTime = useRef<number>(0)
-  const isChangingSection = useRef<boolean>(false)
 
   // For detecting trackpad vs mouse wheel
   const wheelEventCount = useRef<number>(0)
@@ -32,7 +31,6 @@ export const SectionsScrollerItem = (props: SectionsScrollerItemProps) => {
   // Reset accumulator when section changes
   useEffect(() => {
     wheelOverscrollAccumulator.current = 0
-    isChangingSection.current = false
   }, [activeSectionIndex])
 
   const isAtBoundary = (direction: 'up' | 'down'): boolean => {
@@ -47,8 +45,6 @@ export const SectionsScrollerItem = (props: SectionsScrollerItemProps) => {
   }
 
   const changeSection = (direction: 'up' | 'down') => {
-    if (isChangingSection.current) return
-
     const targetIndex = direction === 'up' ? sectionIndex - 1 : sectionIndex + 1
 
     if (targetIndex < 0 || targetIndex >= sectionsCount) {
@@ -57,7 +53,6 @@ export const SectionsScrollerItem = (props: SectionsScrollerItemProps) => {
 
     const section = sections[targetIndex]
     if (section) {
-      isChangingSection.current = true
       wheelOverscrollAccumulator.current = 0
       onSectionChange(section)
     }
@@ -65,7 +60,9 @@ export const SectionsScrollerItem = (props: SectionsScrollerItemProps) => {
 
   const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
     const { current } = rootRef
-    if (!current || isChangingSection.current) return
+    if (!current) {
+      return
+    }
 
     const now = Date.now()
     const timeSinceLastWheel = now - lastWheelTime.current
@@ -118,10 +115,14 @@ export const SectionsScrollerItem = (props: SectionsScrollerItemProps) => {
 
   const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
     const { current } = rootRef
-    if (!current) return
+    if (!current) {
+      return
+    }
 
     const touch = event.touches[0]
-    if (!touch) return
+    if (!touch) {
+      return
+    }
 
     touchStartY.current = touch.clientY
     touchStartTime.current = Date.now()
@@ -130,10 +131,14 @@ export const SectionsScrollerItem = (props: SectionsScrollerItemProps) => {
 
   const handleTouchMove = (event: TouchEvent<HTMLDivElement>) => {
     const { current } = rootRef
-    if (!current || touchStartY.current === null) return
+    if (!current || touchStartY.current === null) {
+      return
+    }
 
     const touch = event.touches[0]
-    if (!touch) return
+    if (!touch) {
+      return
+    }
 
     const currentY = touch.clientY
     const deltaY = touchStartY.current - currentY
@@ -156,10 +161,14 @@ export const SectionsScrollerItem = (props: SectionsScrollerItemProps) => {
 
   const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
     const { current } = rootRef
-    if (!current || touchStartY.current === null || isChangingSection.current) return
+    if (!current || touchStartY.current === null) {
+      return
+    }
 
     const touch = event.changedTouches[0]
-    if (!touch) return
+    if (!touch) {
+      return
+    }
 
     const endY = touch.clientY
     const deltaY = touchStartY.current - endY
