@@ -1,9 +1,9 @@
 'use client'
 
 import React, { forwardRef } from 'react'
-import { twMerge } from 'tailwind-merge'
 
 import { useSectionScrollerRegistration } from '../SectionsScroller/useSectionScrollerRegistration'
+import { cn } from '@/lib/utils'
 
 export interface SectionProps {
   className?: string
@@ -18,7 +18,7 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>((props, ref) => 
 
   return (
     <div
-      className={twMerge(
+      className={cn(
         'relative flex min-h-dvh w-dvw justify-center overflow-hidden py-4 pl-8 pr-10 container mx-auto',
         className
       )}

@@ -1,7 +1,7 @@
 import React from 'react'
-import { twMerge } from 'tailwind-merge'
 
 import { TimelineCard } from './TimelineCard'
+import { cn } from '@/lib/utils'
 
 export interface TimelineItemProps {
   children: React.ReactNode | React.ReactNode[]
@@ -14,9 +14,7 @@ export const TimelineItem = (props: TimelineItemProps) => {
   const { className, children, alignment = 'right', lastItem = false } = props
 
   return (
-    <div
-      className={twMerge(['flex flex-row', alignment === 'left' ? 'sm:flex-row-reverse' : 'sm:flex-row', className])}
-    >
+    <div className={cn(['flex flex-row', alignment === 'left' ? 'sm:flex-row-reverse' : 'sm:flex-row', className])}>
       <div className='flex flex-col items-center'>
         <div
           data-testid='dot'
@@ -24,7 +22,7 @@ export const TimelineItem = (props: TimelineItemProps) => {
         />
         <div
           data-testid='line'
-          className={twMerge('w-[3px] flex-1 bg-primary', lastItem && 'hidden')}
+          className={cn('w-[3px] flex-1 bg-primary', lastItem && 'hidden')}
         />
       </div>
       <TimelineCard alignment={alignment}>{children}</TimelineCard>

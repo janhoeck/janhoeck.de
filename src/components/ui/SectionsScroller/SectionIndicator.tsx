@@ -1,6 +1,6 @@
 import { useSectionsScrollerContext } from '@/components/ui'
 import React from 'react'
-import { twMerge } from 'tailwind-merge'
+import { cn } from '@/lib/utils'
 
 const SECTION_INDICATOR_DIMENSION_CONFIG = {
   default: {
@@ -30,7 +30,7 @@ export const SectionIndicator = (props: SectionIndicatorProps) => {
   const { sections, activeSectionIndex, changeSection } = useSectionsScrollerContext()
 
   return (
-    <ul className={twMerge('relative flex list-none flex-col items-center', className)}>
+    <ul className={cn('relative flex list-none flex-col items-center', className)}>
       {sections.map((section, index) => {
         const isActiveSection = index === activeSectionIndex
         const defaultDimension = SECTION_INDICATOR_DIMENSION_CONFIG.default
@@ -52,7 +52,7 @@ export const SectionIndicator = (props: SectionIndicatorProps) => {
         return (
           <li
             key={section.key}
-            className={twMerge(
+            className={cn(
               'absolute',
               'cursor-pointer rounded-full transition-all duration-300 bg-primary',
               !isActiveSection && `hover:scale-150`

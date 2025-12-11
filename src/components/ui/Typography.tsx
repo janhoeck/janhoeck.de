@@ -1,5 +1,5 @@
 import React, { forwardRef, JSX } from 'react'
-import { clsx } from 'clsx'
+import { cn } from '@/lib/utils'
 
 // Reusable helper to create components with consistent structure
 const createComponent = <T extends HTMLElement>(
@@ -8,11 +8,7 @@ const createComponent = <T extends HTMLElement>(
   displayName: string
 ) => {
   const Component = forwardRef<T, React.HTMLAttributes<T>>((props, ref) => {
-    return React.createElement(
-      tag,
-      { ...props, ref, className: clsx(defaultClassName, props.className) },
-      props.children
-    )
+    return React.createElement(tag, { ...props, ref, className: cn(defaultClassName, props.className) }, props.children)
   })
   Component.displayName = displayName
   return Component

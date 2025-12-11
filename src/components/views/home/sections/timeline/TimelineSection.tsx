@@ -1,5 +1,3 @@
-'use client'
-
 import { Section, SectionCaption, Timeline } from '@/components/ui'
 import React from 'react'
 

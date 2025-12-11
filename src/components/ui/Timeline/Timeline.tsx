@@ -1,7 +1,7 @@
-import React, { Children, HTMLAttributes, cloneElement } from 'react'
-import { twMerge } from 'tailwind-merge'
+import React, { Children, cloneElement, HTMLAttributes } from 'react'
 
 import { TimelineItemProps } from './TimelineItem'
+import { cn } from '@/lib/utils'
 
 export type TimelineProps = HTMLAttributes<HTMLDivElement> & {
   children: React.ReactElement<TimelineItemProps, 'Timeline'> | React.ReactElement<TimelineItemProps, 'Timeline'>[]
@@ -11,7 +11,7 @@ export const Timeline = (props: TimelineProps) => {
   const { className, children, ...restProps } = props
   return (
     <div
-      className={twMerge([
+      className={cn([
         'flex flex-col',
         '[&>div]:sm:w-1/2',
         '[&>div:nth-child(2n+1)]:mr-0 [&>div:nth-child(2n+1)]:self-start [&>div:nth-child(2n+1)]:sm:mr-3 [&>div:nth-child(2n+1)]:sm:self-end',

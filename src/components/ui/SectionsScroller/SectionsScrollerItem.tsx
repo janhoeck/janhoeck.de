@@ -2,7 +2,7 @@
 
 import { SectionType, useSectionsScrollerContext } from '@/components/ui'
 import React, { TouchEvent, useEffect, useRef, WheelEvent } from 'react'
-import { twMerge } from 'tailwind-merge'
+import { cn } from '@/lib/utils'
 
 export interface SectionsScrollerItemProps {
   className?: string
@@ -215,7 +215,7 @@ export const SectionsScrollerItem = (props: SectionsScrollerItemProps) => {
 
   return (
     <div
-      className={twMerge('h-screen overflow-auto overscroll-none', className)}
+      className={cn('h-screen overflow-auto overscroll-none', className)}
       ref={rootRef}
       onWheel={handleWheel}
       onTouchStart={handleTouchStart}

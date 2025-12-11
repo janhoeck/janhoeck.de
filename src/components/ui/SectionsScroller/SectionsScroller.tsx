@@ -7,10 +7,10 @@ import {
   useSectionsScrollerContext,
 } from '@/components/ui'
 import React, { Children, useRef } from 'react'
-import { twMerge } from 'tailwind-merge'
 
 import { SectionIndicator } from './SectionIndicator'
 import { SectionsScrollerItem } from './SectionsScrollerItem'
+import { cn } from '@/lib/utils'
 
 export interface SectionsScrollerProps {
   className?: string
@@ -50,7 +50,7 @@ const SectionsScrollerInternal = (props: SectionsScrollerProps) => {
   }
 
   return (
-    <div className={twMerge('relative h-full', className)}>
+    <div className={cn('relative h-full', className)}>
       <div
         className='transition-transform duration-700 ease-in-out'
         style={{
