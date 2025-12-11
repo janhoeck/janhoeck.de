@@ -1,13 +1,8 @@
 'use client'
 
-import React, { createContext, useContext, useEffect, useMemo, useState } from 'react'
-
-export type SectionsScrollerContextType = ReturnType<typeof useStore>
-export type SectionType = {
-  key: string
-}
-
-const SectionsScrollerContext = createContext<SectionsScrollerContextType>({} as any)
+import React, { useEffect, useMemo, useState } from 'react'
+import { SectionsScrollerContext } from './SectionsScrollerContext'
+import { SectionType } from './types'
 
 const useStore = () => {
   // All sections
@@ -73,8 +68,4 @@ export const SectionsScrollerContextProvider = (props: { children: React.ReactNo
   const store = useStore()
 
   return <SectionsScrollerContext.Provider value={store}>{children}</SectionsScrollerContext.Provider>
-}
-
-export const useSectionsScrollerContext = () => {
-  return useContext(SectionsScrollerContext)
 }

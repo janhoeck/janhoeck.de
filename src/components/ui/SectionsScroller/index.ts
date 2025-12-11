@@ -1,2 +1,2 @@
 export * from './SectionsScroller'
-export * from './SectionsScrollerContext'
+export * from './context'
