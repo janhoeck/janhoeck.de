@@ -19,7 +19,7 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>((props, ref) => 
   return (
     <div
       className={cn(
-        'relative flex min-h-dvh w-dvw justify-center overflow-hidden py-4 pl-8 pr-10 container mx-auto',
+        'relative flex min-h-svh w-dvw justify-center overflow-hidden py-4 pl-8 pr-10 container mx-auto',
         className
       )}
       ref={ref}
