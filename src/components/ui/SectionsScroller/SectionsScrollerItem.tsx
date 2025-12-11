@@ -22,7 +22,6 @@ export const SectionsScrollerItem = (props: SectionsScrollerItemProps) => {
   const touchStartTime = useRef<number>(0)
   const touchStartScrollTop = useRef<number>(0)
   const wheelOverscrollAccumulator = useRef<number>(0)
-  const lastWheelTime = useRef<number>(0)
 
   // For detecting trackpad vs mouse wheel
   const wheelEventCount = useRef<number>(0)
@@ -35,7 +34,9 @@ export const SectionsScrollerItem = (props: SectionsScrollerItemProps) => {
 
   const isAtBoundary = (direction: 'up' | 'down'): boolean => {
     const { current } = rootRef
-    if (!current) return false
+    if (!current) {
+      return false
+    }
 
     const tolerance = 5
     const isAtTop = current.scrollTop <= tolerance
@@ -63,10 +64,6 @@ export const SectionsScrollerItem = (props: SectionsScrollerItemProps) => {
     if (!current) {
       return
     }
-
-    const now = Date.now()
-    const timeSinceLastWheel = now - lastWheelTime.current
-    lastWheelTime.current = now
 
     // Detect if this is a trackpad (many small events) or mouse wheel (fewer large events)
     wheelEventCount.current++
