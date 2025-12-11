@@ -27,7 +27,7 @@ export interface SectionIndicatorProps {
 
 export const SectionIndicator = (props: SectionIndicatorProps) => {
   const { className } = props
-  const { sections, activeSectionIndex, setActiveSectionKey } = useSectionsScrollerContext()
+  const { sections, activeSectionIndex, changeSection } = useSectionsScrollerContext()
 
   return (
     <ul className={twMerge('relative flex list-none flex-col items-center', className)}>
@@ -62,7 +62,7 @@ export const SectionIndicator = (props: SectionIndicatorProps) => {
               height: currentDimension.height,
               width: currentDimension.width,
             }}
-            onClick={() => setActiveSectionKey(section.key)}
+            onClick={() => changeSection(index)}
           />
         )
       })}

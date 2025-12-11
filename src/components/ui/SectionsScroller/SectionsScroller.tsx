@@ -1,6 +1,11 @@
 'use client'
 
-import { SectionsScrollerContextProvider, SectionType, useSectionsScrollerContext } from '@/components/ui'
+import {
+  findSectionIndex,
+  SectionsScrollerContextProvider,
+  SectionType,
+  useSectionsScrollerContext,
+} from '@/components/ui'
 import React, { Children, useRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
@@ -14,7 +19,7 @@ export interface SectionsScrollerProps {
 
 const SectionsScrollerInternal = (props: SectionsScrollerProps) => {
   const { children, className } = props
-  const { sectionsCount, activeSectionIndex, setActiveSectionKey } = useSectionsScrollerContext()
+  const { sections, sectionsCount, activeSectionIndex, changeSection } = useSectionsScrollerContext()
 
   const lastSwitchTime = useRef<number>(0)
   const isAnimating = useRef<boolean>(false)
@@ -34,7 +39,9 @@ const SectionsScrollerInternal = (props: SectionsScrollerProps) => {
 
     lastSwitchTime.current = now
     isAnimating.current = true
-    setActiveSectionKey(section.key)
+
+    const sectionIndex = findSectionIndex(sections, section.key)
+    changeSection(sectionIndex)
 
     // Reset animation flag after transition completes
     setTimeout(() => {
@@ -43,7 +50,7 @@ const SectionsScrollerInternal = (props: SectionsScrollerProps) => {
   }
 
   return (
-    <div className={twMerge('relative', className)}>
+    <div className={twMerge('relative h-full', className)}>
       <div
         className='transition-transform duration-700 ease-in-out'
         style={{

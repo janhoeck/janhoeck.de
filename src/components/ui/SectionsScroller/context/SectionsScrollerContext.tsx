@@ -9,6 +9,5 @@ export const SectionsScrollerContext = createContext<SectionsScrollerContextType
   sectionsCount: 0,
   activeSection: undefined,
   activeSectionIndex: 0,
-  activeSectionKey: undefined,
-  setActiveSectionKey: () => {},
+  changeSection: () => {},
 })

@@ -8,6 +8,5 @@ export type SectionsScrollerContextType = {
   sectionsCount: number
   activeSection: SectionType | undefined
   activeSectionIndex: number
-  activeSectionKey: string | undefined
-  setActiveSectionKey: (sectionKey: string) => void
+  changeSection: (sectionIndex: number) => void
 }
