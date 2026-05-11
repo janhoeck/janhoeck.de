@@ -13,22 +13,28 @@ export const Socials = (props: SocialProps) => {
   return (
     <div className={twMerge('flex items-center justify-center gap-2', className)}>
       <Button
+        asChild
         variant='outline'
         size='icon'
       >
         <Link
           href='https://github.com/janhoeck'
           target='_blank'
-          rel='noreferrer'
+          rel='noopener noreferrer'
+          aria-label='GitHub-Profil von Jan Höck'
         >
           <Github />
         </Link>
       </Button>
       <Button
+        asChild
         variant='outline'
         size='icon'
       >
-        <Link href='mailto:jan.hoeck@gmx.net'>
+        <Link
+          href='mailto:jan.hoeck@gmx.net'
+          aria-label='Jan Höck per E-Mail kontaktieren'
+        >
           <Mail />
         </Link>
       </Button>

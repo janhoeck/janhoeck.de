@@ -16,7 +16,7 @@ export const MeImage = (props: MeImageProps) => {
         fill
         className='z-10 rounded-full'
         src='/assets/me.jpg'
-        alt='Jan Höck'
+        alt='Porträtfoto von Jan Höck, Senior Frontend Entwickler'
       />
     </div>
   )

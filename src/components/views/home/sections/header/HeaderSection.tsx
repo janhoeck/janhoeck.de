@@ -10,6 +10,7 @@ import { Socials } from './components/Socials'
 export const HeaderSection = () => {
   return (
     <Section
+      as='header'
       className='flex flex-col items-center justify-center'
       sectionKey='header'
     >

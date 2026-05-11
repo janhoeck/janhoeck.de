@@ -2,7 +2,7 @@
   "name": "jan_hoeck",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://janhoeck.github.io/jan_hoeck",
+  "homepage": "https://janhoeck.de",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

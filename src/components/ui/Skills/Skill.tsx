@@ -19,7 +19,7 @@ export const Skill = (props: SkillProps) => {
         <Image
           fill
           src={imageSrc}
-          alt={tooltip ?? ''}
+          alt={tooltip ? `Logo: ${tooltip}` : ''}
           className='object-contain'
         />
       </CardContent>
