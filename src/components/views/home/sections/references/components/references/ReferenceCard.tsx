@@ -7,13 +7,13 @@ export interface ReferenceCardProps {
   className?: string
   imageSrc: string
   githubUrl: string
-  liveDemoUrl?: string
+  livePreviewUrl?: string
   title: string
   description?: string
 }
 
 export const ReferenceCard = (props: ReferenceCardProps) => {
-  const { githubUrl, liveDemoUrl, title, description, imageSrc } = props
+  const { githubUrl, livePreviewUrl, title, description, imageSrc } = props
 
   return (
     <Card className='max-w-md pt-0'>
@@ -29,15 +29,15 @@ export const ReferenceCard = (props: ReferenceCardProps) => {
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardFooter className='gap-3 max-sm:flex-col max-sm:items-stretch'>
-        {liveDemoUrl && (
+        {livePreviewUrl && (
           <Button asChild>
             <Link
-              href={liveDemoUrl}
+              href={livePreviewUrl}
               target='_blank'
               rel='noopener noreferrer'
             >
               <ExternalLink />
-              Demo
+              Preview
             </Link>
           </Button>
         )}

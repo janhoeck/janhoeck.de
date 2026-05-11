@@ -7,7 +7,7 @@ export const referencesConfig: ReferenceCardProps[] = [
       'Moderne Vermietungsplattform für Ferienhäuser an der spanischen Mittelmeerküste – inklusive Galerie, Ausstattungsdetails und direkter Kontaktanfrage.',
     imageSrc: '/assets/references/solymarmenor.png',
     githubUrl: 'https://github.com/janhoeck/jan_hoeck/tree/master/apps/holiday_apartment',
-    liveDemoUrl: 'https://solymarmenor.com',
+    livePreviewUrl: 'https://solymarmenor.com',
   },
   {
     title: 'Hookah Awards',
@@ -15,7 +15,7 @@ export const referencesConfig: ReferenceCardProps[] = [
       'Interaktive Voting-Plattform für einen Twitch-Streamer, auf der die Community jährlich über die besten Clips des Jahres abstimmt.',
     imageSrc: '/assets/references/hookahawards.png',
     githubUrl: 'https://github.com/janhoeck/jan_hoeck/tree/master/apps/hookahawards',
-    liveDemoUrl: 'https://hookahawards.de',
+    livePreviewUrl: 'https://hookahawards.de',
   },
   {
     title: 'Adventskalender',
@@ -23,6 +23,6 @@ export const referencesConfig: ReferenceCardProps[] = [
       'Digitaler Adventskalender, der jeden Tag im Dezember ein neues weihnachtliches Türchen mit liebevoll gestalteten Inhalten freischaltet.',
     imageSrc: '/assets/references/adventscalendar.png',
     githubUrl: 'https://github.com/janhoeck/jan_hoeck/tree/master/apps/adventscalendar',
-    liveDemoUrl: 'https://jan-hoeck-adventscalendar.vercel.app/',
+    livePreviewUrl: 'https://jan-hoeck-adventscalendar.vercel.app/',
   },
 ]
