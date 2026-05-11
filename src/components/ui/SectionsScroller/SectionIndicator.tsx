@@ -55,6 +55,7 @@ export const SectionIndicator = (props: SectionIndicatorProps) => {
             className={cn(
               'absolute',
               'cursor-pointer rounded-full transition-all duration-300 bg-primary',
+              "before:absolute before:-inset-2.5 before:content-['']",
               !isActiveSection && `hover:scale-150`
             )}
             style={{
