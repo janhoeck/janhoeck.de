@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useMemo, useState } from 'react'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { SectionsScrollerContext } from './SectionsScrollerContext'
 import { SectionType } from './types'
 
@@ -9,6 +9,8 @@ const useStore = () => {
   const [sections, setSections] = useState<SectionType[]>([])
   // The current active section as index
   const [activeSectionIndex, setActiveSectionIndex] = useState<number>(0)
+  // DOM elements of each section's scroll container, keyed by index
+  const sectionElements = useRef<Map<number, HTMLElement>>(new Map())
 
   const registerSection = (section: SectionType) => {
     setSections((prevSections) => {
@@ -21,12 +23,26 @@ const useStore = () => {
     })
   }
 
+  const registerSectionElement = useCallback((index: number, element: HTMLElement | null) => {
+    if (element === null) {
+      sectionElements.current.delete(index)
+      return
+    }
+    sectionElements.current.set(index, element)
+  }, [])
+
+  const getSectionElement = useCallback((index: number): HTMLElement | null => {
+    return sectionElements.current.get(index) ?? null
+  }, [])
+
   const activeSection = useMemo(() => sections[activeSectionIndex], [sections, activeSectionIndex])
   const sectionsCount = useMemo(() => sections.length, [sections])
 
   return {
     sections,
     registerSection,
+    registerSectionElement,
+    getSectionElement,
     changeSection: setActiveSectionIndex,
     sectionsCount,
     activeSection,
