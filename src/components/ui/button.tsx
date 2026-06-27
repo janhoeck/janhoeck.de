@@ -34,6 +34,7 @@ const buttonVariants = cva(
   }
 )
 
+/** @category Buttons */
 function Button({
   className,
   variant,

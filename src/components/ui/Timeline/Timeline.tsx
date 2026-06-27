@@ -7,6 +7,7 @@ export type TimelineProps = HTMLAttributes<HTMLDivElement> & {
   children: React.ReactElement<TimelineItemProps, 'Timeline'> | React.ReactElement<TimelineItemProps, 'Timeline'>[]
 }
 
+/** @category Timeline */
 export const Timeline = (props: TimelineProps) => {
   const { className, children, ...restProps } = props
   return (

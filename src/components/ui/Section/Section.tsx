@@ -10,6 +10,7 @@ export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   as?: 'section' | 'header' | 'article'
 }
 
+/** @category Layout */
 export const Section = forwardRef<HTMLElement, SectionProps>((props, ref) => {
   const { children, className, sectionKey, as: Tag = 'section', ...restProps } = props
 

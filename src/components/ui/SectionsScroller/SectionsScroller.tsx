@@ -230,6 +230,7 @@ const SectionsScrollerInternal = (props: SectionsScrollerProps) => {
   )
 }
 
+/** @category Layout */
 export const SectionsScroller = (props: SectionsScrollerProps) => (
   <SectionsScrollerContextProvider>
     <SectionsScrollerInternal {...props} />

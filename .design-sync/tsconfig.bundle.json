@@ -1,0 +1,13 @@
+{
+  "_comment": "Used ONLY by design-sync's esbuild paths plugin (cfg.tsconfig). baseUrl is '..' so it resolves from the repo root. Resolves the @/ alias AND swaps Next.js-only modules for tiny static shims so the components bundle and render outside Next.",
+  "compilerOptions": {
+    "baseUrl": "..",
+    "paths": {
+      "@/components/ui": ["src/components/ui/index.ts"],
+      "@/*": ["src/*"],
+      "next/image": ["./.design-sync/shims/next-image.tsx"],
+      "next/link": ["./.design-sync/shims/next-link.tsx"],
+      "next/font/google": ["./.design-sync/shims/next-font.ts"]
+    }
+  }
+}

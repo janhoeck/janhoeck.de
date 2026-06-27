@@ -14,46 +14,59 @@ const createComponent = <T extends HTMLElement>(
   return Component
 }
 
+/** @category Typography */
 export const H1 = createComponent<HTMLHeadingElement>(
   'h1',
   'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
   'H1'
 )
 
+/** @category Typography */
 export const H2 = createComponent<HTMLHeadingElement>(
   'h2',
   'scroll-m-20 border-b py-2 text-3xl font-semibold tracking-tight first:mt-0',
   'H2'
 )
 
+/** @category Typography */
 export const H3 = createComponent<HTMLHeadingElement>('h3', 'scroll-m-20 text-2xl font-semibold tracking-tight', 'H3')
 
+/** @category Typography */
 export const H4 = createComponent<HTMLHeadingElement>('h4', 'scroll-m-20 text-xl font-semibold tracking-tight', 'H4')
 
+/** @category Typography */
 export const Lead = createComponent<HTMLParagraphElement>('p', 'text-xl text-muted-foreground', 'Lead')
 
+/** @category Typography */
 export const P = createComponent<HTMLParagraphElement>('p', 'leading-7 [&:not(:first-child)]:mt-6', 'P')
 
+/** @category Typography */
 export const Large = createComponent<HTMLDivElement>('div', 'text-lg font-semibold', 'Large')
 
+/** @category Typography */
 export const Small = createComponent<HTMLParagraphElement>('p', 'text-sm font-medium leading-none', 'Small')
 
+/** @category Typography */
 export const Muted = createComponent<HTMLSpanElement>('span', 'text-sm text-muted-foreground', 'Muted')
 
+/** @category Typography */
 export const InlineCode = createComponent<HTMLSpanElement>(
   'code',
   'relative rounded-sm bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold',
   'InlineCode'
 )
 
+/** @category Typography */
 export const MultilineCode = createComponent<HTMLPreElement>(
   'pre',
   'relative rounded-sm bg-muted p-4 font-mono text-sm font-semibold overflow-x-auto',
   'MultilineCode'
 )
 
+/** @category Typography */
 export const List = createComponent<HTMLUListElement>('ul', 'my-6 ml-6 mb-0 mt-0 list-disc [&>li]:mt-2', 'List')
 
+/** @category Typography */
 export const Quote = createComponent<HTMLQuoteElement>(
   'blockquote',
   'mt-6 border-l-2 pl-6 italic text-muted-foreground',

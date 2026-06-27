@@ -8,6 +8,7 @@ export interface SkillsProps {
   children: React.ReactElement<SkillProps> | React.ReactElement<SkillProps>[]
 }
 
+/** @category Skills */
 export const Skills = (props: SkillsProps) => {
   const { className, children } = props
 

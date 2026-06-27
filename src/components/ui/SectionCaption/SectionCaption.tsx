@@ -7,6 +7,7 @@ export interface SectionCaptionProps {
   children: string
 }
 
+/** @category Layout */
 export const SectionCaption = (props: SectionCaptionProps) => {
   const { children, className } = props
 
