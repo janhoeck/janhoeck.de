@@ -1,31 +1,24 @@
 import React from 'react'
-
-import { TimelineCard } from './TimelineCard'
 import { cn } from '@/lib/utils'
 
+import { TimelineDot } from './TimelineDot'
+import { TimelineCard } from './TimelineCard'
+
 export interface TimelineItemProps {
-  children: React.ReactNode | React.ReactNode[]
+  /** Date range shown above the card, e.g. "Juli 2022 – heute". */
+  when: string
   className?: string
-  lastItem?: boolean
-  alignment?: 'left' | 'right'
+  children: React.ReactNode
 }
 
+/** A single timeline entry: dot marker, date label, and a card with the content. */
 export const TimelineItem = (props: TimelineItemProps) => {
-  const { className, children, alignment = 'right', lastItem = false } = props
-
+  const { when, className, children } = props
   return (
-    <div className={cn(['flex flex-row', alignment === 'left' ? 'sm:flex-row-reverse' : 'sm:flex-row', className])}>
-      <div className='flex flex-col items-center'>
-        <div
-          data-testid='dot'
-          className='h-[17px] w-[17px] rounded-full shadow-md bg-primary'
-        />
-        <div
-          data-testid='line'
-          className={cn('w-[3px] flex-1 bg-primary', lastItem && 'hidden')}
-        />
-      </div>
-      <TimelineCard alignment={alignment}>{children}</TimelineCard>
+    <div className={cn('relative pb-[clamp(12px,1.8vh,22px)] last:pb-0', className)}>
+      <TimelineDot />
+      <div className='mb-[5px] font-mono text-[11px] uppercase tracking-[0.12em] text-brand'>{when}</div>
+      <TimelineCard>{children}</TimelineCard>
     </div>
   )
 }

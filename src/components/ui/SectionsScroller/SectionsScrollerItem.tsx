@@ -12,7 +12,7 @@ export interface SectionsScrollerItemProps {
 
 export const SectionsScrollerItem = (props: SectionsScrollerItemProps) => {
   const { children, className, sectionIndex } = props
-  const { registerSectionElement } = useSectionsScrollerContext()
+  const { registerSectionElement, activeSectionIndex } = useSectionsScrollerContext()
   const rootRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -23,7 +23,12 @@ export const SectionsScrollerItem = (props: SectionsScrollerItemProps) => {
   }, [sectionIndex, registerSectionElement])
 
   return (
-    <div className={cn('h-screen overflow-auto overscroll-none', className)} ref={rootRef}>
+    <div
+      ref={rootRef}
+      data-section
+      data-active={sectionIndex === activeSectionIndex}
+      className={cn('no-scrollbar h-screen overflow-auto overscroll-none', className)}
+    >
       {children}
     </div>
   )

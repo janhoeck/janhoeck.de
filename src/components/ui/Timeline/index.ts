@@ -1,2 +1,5 @@
-export { Timeline, type TimelineProps } from './Timeline'
-export { TimelineItem, type TimelineItemProps } from './TimelineItem'
+export * from './Timeline'
+export * from './TimelineItem'
+export * from './TimelineCard'
+export * from './TimelineDot'
+export * from './TimelineLine'

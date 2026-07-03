@@ -1,42 +1,36 @@
-import {
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-  List,
-  TimelineItem,
-  type TimelineItemProps,
-} from '@/components/ui'
 import React from 'react'
+import { TimelineItem } from '@/components/ui'
+import { cn } from '@/lib/utils'
 
-export type CustomTimelineItemProps = Omit<TimelineItemProps, 'children'> & {
+export interface CustomTimelineItemProps {
   timePeriod: string
-  jobTitle: string
   organization: string
+  /** Muted parenthetical after the organisation, e.g. "(ImmobilienScout24)". */
+  organizationSub?: string
+  jobTitle: string
   tasks?: string[]
 }
 
+/** A Werdegang entry — fills a TimelineItem card with organisation, role and tasks. */
 export const CustomTimelineItem = (props: CustomTimelineItemProps) => {
-  const { timePeriod, jobTitle, organization, tasks, ...restProps } = props
+  const { timePeriod, organization, organizationSub, jobTitle, tasks } = props
+
   return (
-    <TimelineItem {...restProps}>
-      <CardHeader>
-        <CardTitle>{organization}</CardTitle>
-        <CardDescription>{jobTitle}</CardDescription>
-      </CardHeader>
+    <TimelineItem when={timePeriod}>
+      <h4 className='m-0 mb-0.5 text-base font-bold text-content'>
+        {organization}
+        {organizationSub && <span className='font-normal text-content-faint'> {organizationSub}</span>}
+      </h4>
+      <div className={cn('text-[13px] text-content-dim', tasks ? 'mb-2' : 'mb-0')}>{jobTitle}</div>
       {tasks && (
-        <CardContent>
-          <List className='mt-2'>
-            {tasks.map((task, index) => (
-              <li key={index}>{task}</li>
-            ))}
-          </List>
-        </CardContent>
+        <ul className='m-0 flex flex-col gap-[3px] pl-[17px]'>
+          {tasks.map((task) => (
+            <li key={task} className='text-[13px] leading-[1.4] text-content-dim marker:text-brand'>
+              {task}
+            </li>
+          ))}
+        </ul>
       )}
-      <CardFooter>
-        <CardDescription>{timePeriod}</CardDescription>
-      </CardFooter>
     </TimelineItem>
   )
 }

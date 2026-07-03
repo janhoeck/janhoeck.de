@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Barlow } from 'next/font/google'
+import { Barlow, Barlow_Semi_Condensed, Space_Mono } from 'next/font/google'
 import { twMerge } from 'tailwind-merge'
 
 import './index.css'
@@ -7,6 +7,18 @@ import './index.css'
 const barlow = Barlow({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+})
+
+const barlowCondensed = Barlow_Semi_Condensed({
+  subsets: ['latin'],
+  weight: ['600', '700', '800'],
+  variable: '--font-barlow-condensed',
+})
+
+const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-space-mono',
 })
 
 export const metadata: Metadata = {
@@ -101,7 +113,10 @@ const websiteSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='de'>
+    <html
+      lang='de'
+      className={twMerge(barlowCondensed.variable, spaceMono.variable)}
+    >
       <head>
         <script
           type='application/ld+json'
@@ -112,8 +127,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className={twMerge(barlow.className, 'dark')}>
-        <main>{children}</main>
+      <body className={twMerge(barlow.className, 'dark', 'bg-base text-content antialiased')}>
+        {children}
       </body>
     </html>
   )

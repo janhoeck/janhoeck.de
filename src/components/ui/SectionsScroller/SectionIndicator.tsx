@@ -2,25 +2,6 @@ import { useSectionsScrollerContext } from '@/components/ui'
 import React from 'react'
 import { cn } from '@/lib/utils'
 
-const SECTION_INDICATOR_DIMENSION_CONFIG = {
-  default: {
-    height: 4,
-    width: 4,
-    hover: {
-      height: 8,
-      width: 8,
-    },
-  },
-  active: {
-    height: 12,
-    width: 12,
-    hover: {
-      height: 12,
-      width: 12,
-    },
-  },
-}
-
 export interface SectionIndicatorProps {
   className?: string
 }
@@ -30,43 +11,44 @@ export const SectionIndicator = (props: SectionIndicatorProps) => {
   const { sections, activeSectionIndex, changeSection } = useSectionsScrollerContext()
 
   return (
-    <ul className={cn('relative flex list-none flex-col items-center', className)}>
+    <nav
+      aria-label='Abschnitte'
+      className={cn(
+        'fixed right-[clamp(18px,3vw,34px)] top-1/2 z-40 flex -translate-y-1/2 flex-col items-end gap-4',
+        'max-[860px]:hidden',
+        className
+      )}
+    >
       {sections.map((section, index) => {
-        const isActiveSection = index === activeSectionIndex
-        const defaultDimension = SECTION_INDICATOR_DIMENSION_CONFIG.default
-        const activeDimension = SECTION_INDICATOR_DIMENSION_CONFIG.active
-        const currentDimension = isActiveSection ? activeDimension : defaultDimension
-
-        const defaultSpacing = 16
-        // To calculate the topSpacing we have to calculate the current index * defaultSpacing.
-        // This will result in 0 if it is the first index.
-        // Then we add the height of the already existing indicators to that calculation to get an even spacing between
-        // all indicators
-        let topSpacing = index * defaultSpacing + (index + 1) * defaultDimension.height
-        if (activeSectionIndex < index) {
-          // If the active section indicator is before our current indicator (of this for loop), then we have to add this
-          // height as well to the calculation, because it's a big bigger as the default ones
-          topSpacing += activeDimension.height - defaultDimension.height
-        }
-
+        const isActive = index === activeSectionIndex
         return (
-          <li
+          <button
             key={section.key}
-            className={cn(
-              'absolute',
-              'cursor-pointer rounded-full transition-all duration-300 bg-primary',
-              "before:absolute before:-inset-2.5 before:content-['']",
-              !isActiveSection && `hover:scale-150`
-            )}
-            style={{
-              top: topSpacing,
-              height: currentDimension.height,
-              width: currentDimension.width,
-            }}
+            type='button'
             onClick={() => changeSection(index)}
-          />
+            aria-current={isActive ? 'true' : undefined}
+            aria-label={section.label ?? section.key}
+            className='group flex items-center gap-3 text-content-faint'
+          >
+            <span
+              className={cn(
+                'font-mono text-[10px] uppercase tracking-[0.14em] transition-all duration-200',
+                isActive
+                  ? 'translate-x-0 text-brand opacity-100'
+                  : 'translate-x-1.5 text-content-dim opacity-0 group-hover:translate-x-0 group-hover:opacity-100'
+              )}
+            >
+              {section.label ?? section.key}
+            </span>
+            <span
+              className={cn(
+                'size-[9px] rounded-full border-[1.5px] transition-all duration-300',
+                isActive ? 'scale-110 border-brand bg-brand' : 'border-content-faint'
+              )}
+            />
+          </button>
         )
       })}
-    </ul>
+    </nav>
   )
 }

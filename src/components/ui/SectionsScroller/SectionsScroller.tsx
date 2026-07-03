@@ -203,8 +203,26 @@ const SectionsScrollerInternal = (props: SectionsScrollerProps) => {
     }
   }, [sectionsCount, changeSection, getSectionElement])
 
+  const progress = sectionsCount > 1 ? (activeSectionIndex / (sectionsCount - 1)) * 100 : 0
+
   return (
     <div ref={rootRef} className={cn('relative h-full overflow-hidden', className)}>
+      <div
+        className='fixed left-0 top-0 z-50 h-0.5 bg-brand transition-[width] duration-150 ease-linear'
+        style={{ width: `${progress}%` }}
+        aria-hidden='true'
+      />
+
+      <button
+        type='button'
+        onClick={() => changeSection(0)}
+        aria-label='Zum Seitenanfang'
+        className='fixed left-[clamp(24px,6vw,56px)] top-[26px] z-40 flex items-center gap-2.5 font-display text-[19px] font-extrabold uppercase tracking-[0.04em] text-content'
+      >
+        <span className='size-2 rounded-full bg-brand' />
+        Jan&nbsp;Höck
+      </button>
+
       <motion.div
         animate={{ y: `-${activeSectionIndex * 100}vh` }}
         transition={{ type: 'spring', stiffness: 120, damping: 26, mass: 0.9 }}
@@ -221,11 +239,8 @@ const SectionsScrollerInternal = (props: SectionsScrollerProps) => {
           </SectionsScrollerItem>
         ))}
       </motion.div>
-      <div className='pointer-events-none absolute right-6 top-1/2 -translate-y-1/2'>
-        <div className='pointer-events-auto'>
-          <SectionIndicator />
-        </div>
-      </div>
+
+      <SectionIndicator />
     </div>
   )
 }

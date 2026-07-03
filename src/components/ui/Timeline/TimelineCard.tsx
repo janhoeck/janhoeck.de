@@ -1,21 +1,22 @@
 import React from 'react'
-import { Card } from '@/components/ui'
 import { cn } from '@/lib/utils'
 
-export type TimelineCardProps = {
-  children: React.ReactNode | React.ReactNode[]
-  alignment?: 'left' | 'right'
+import { Card } from '../card'
+
+export interface TimelineCardProps {
+  className?: string
+  children: React.ReactNode
 }
 
+/** Studio-styled timeline entry card (built on the shadcn Card primitive). */
 export const TimelineCard = (props: TimelineCardProps) => {
-  const { children, alignment } = props
+  const { className, children } = props
   return (
     <Card
-      className={cn([
-        'mb-4 ml-4 mt-1 grow',
-        alignment === 'right' ? 'sm:ml-4' : '',
-        alignment === 'left' ? 'sm:ml-0 sm:mr-4' : '',
-      ])}
+      className={cn(
+        'gap-0 rounded-[14px] border-line bg-surface px-5 py-[14px] shadow-none transition-[transform,border-color] duration-200 ease-studio hover:translate-x-1 hover:border-line-strong',
+        className
+      )}
     >
       {children}
     </Card>
