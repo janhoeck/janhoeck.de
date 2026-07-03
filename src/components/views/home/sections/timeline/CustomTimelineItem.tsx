@@ -17,15 +17,15 @@ export const CustomTimelineItem = (props: CustomTimelineItemProps) => {
 
   return (
     <TimelineItem when={timePeriod}>
-      <h4 className='m-0 mb-0.5 text-base font-bold text-content'>
+      <h4 className='mb-0.5 font-bold text-content'>
         {organization}
         {organizationSub && <span className='font-normal text-content-faint'> {organizationSub}</span>}
       </h4>
-      <div className={cn('text-[13px] text-content-dim', tasks ? 'mb-2' : 'mb-0')}>{jobTitle}</div>
+      <div className={cn('text-body-sm text-content-dim', tasks && 'mb-2')}>{jobTitle}</div>
       {tasks && (
-        <ul className='m-0 flex flex-col gap-[3px] pl-[17px]'>
+        <ul className='flex flex-col gap-0.75 pl-4.25'>
           {tasks.map((task) => (
-            <li key={task} className='text-[13px] leading-[1.4] text-content-dim marker:text-brand'>
+            <li key={task} className='text-body-sm leading-[1.4] text-content-dim marker:text-brand'>
               {task}
             </li>
           ))}

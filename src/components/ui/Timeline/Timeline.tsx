@@ -12,7 +12,7 @@ export interface TimelineProps {
 export const Timeline = (props: TimelineProps) => {
   const { className, children } = props
   return (
-    <div className={cn('relative pl-[30px]', className)}>
+    <div className={cn('relative pl-7.5', className)}>
       <TimelineLine />
       {children}
     </div>

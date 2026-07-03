@@ -217,7 +217,7 @@ const SectionsScrollerInternal = (props: SectionsScrollerProps) => {
         type='button'
         onClick={() => changeSection(0)}
         aria-label='Zum Seitenanfang'
-        className='fixed left-[clamp(24px,6vw,56px)] top-[26px] z-40 flex items-center gap-2.5 font-display text-[19px] font-extrabold uppercase tracking-[0.04em] text-content'
+        className='fixed left-[clamp(24px,6vw,56px)] top-6.5 z-40 flex items-center gap-2.5 font-display text-lg font-extrabold uppercase tracking-[0.04em] text-content'
       >
         <span className='size-2 rounded-full bg-brand' />
         Jan&nbsp;Höck

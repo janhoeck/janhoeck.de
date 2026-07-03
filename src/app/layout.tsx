@@ -6,7 +6,8 @@ import './index.css'
 
 const barlow = Barlow({
   subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-barlow',
 })
 
 const barlowCondensed = Barlow_Semi_Condensed({
@@ -115,7 +116,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang='de'
-      className={twMerge(barlowCondensed.variable, spaceMono.variable)}
+      className={twMerge(barlow.variable, barlowCondensed.variable, spaceMono.variable)}
     >
       <head>
         <script
@@ -127,9 +128,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className={twMerge(barlow.className, 'dark', 'bg-base text-content antialiased')}>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   )
 }

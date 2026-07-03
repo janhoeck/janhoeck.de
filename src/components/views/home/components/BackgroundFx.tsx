@@ -2,7 +2,7 @@ import React from 'react'
 
 const GRID_STYLE: React.CSSProperties = {
   backgroundImage:
-    'linear-gradient(#2e2e31 1px, transparent 1px), linear-gradient(90deg, #2e2e31 1px, transparent 1px)',
+    'linear-gradient(var(--color-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-line) 1px, transparent 1px)',
   backgroundSize: '96px 96px',
   WebkitMaskImage: 'radial-gradient(ellipse 90% 80% at 50% 40%, #000 30%, transparent 78%)',
   maskImage: 'radial-gradient(ellipse 90% 80% at 50% 40%, #000 30%, transparent 78%)',

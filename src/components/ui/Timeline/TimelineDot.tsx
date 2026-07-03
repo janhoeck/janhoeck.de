@@ -4,7 +4,6 @@ import React from 'react'
 export const TimelineDot = () => (
   <span
     aria-hidden='true'
-    className='absolute -left-[30px] top-[5px] size-3 rounded-full border-2 border-brand bg-base'
-    style={{ boxShadow: '0 0 0 4px #1b1b1d' }}
+    className='absolute -left-7.5 top-1.25 size-3 rounded-full border-2 border-brand bg-base ring-4 ring-base'
   />
 )

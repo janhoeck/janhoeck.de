@@ -11,7 +11,7 @@ export const ReferenceSection = () => {
         Referenzen
       </SectionCaption>
 
-      <div className='grid grid-cols-1 gap-[22px] sm:grid-cols-2 xl:grid-cols-4'>
+      <div className='grid grid-cols-1 gap-5.5 sm:grid-cols-2 xl:grid-cols-4'>
         {referencesConfig.map((reference, index) => (
           <ReferenceCard
             key={reference.title}

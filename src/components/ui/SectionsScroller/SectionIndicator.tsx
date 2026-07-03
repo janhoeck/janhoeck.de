@@ -15,7 +15,7 @@ export const SectionIndicator = (props: SectionIndicatorProps) => {
       aria-label='Abschnitte'
       className={cn(
         'fixed right-[clamp(18px,3vw,34px)] top-1/2 z-40 flex -translate-y-1/2 flex-col items-end gap-4',
-        'max-[860px]:hidden',
+        'max-tablet:hidden',
         className
       )}
     >
@@ -32,7 +32,7 @@ export const SectionIndicator = (props: SectionIndicatorProps) => {
           >
             <span
               className={cn(
-                'font-mono text-[10px] uppercase tracking-[0.14em] transition-all duration-200',
+                'font-mono text-2xs uppercase tracking-caps transition-all duration-200',
                 isActive
                   ? 'translate-x-0 text-brand opacity-100'
                   : 'translate-x-1.5 text-content-dim opacity-0 group-hover:translate-x-0 group-hover:opacity-100'
@@ -42,7 +42,7 @@ export const SectionIndicator = (props: SectionIndicatorProps) => {
             </span>
             <span
               className={cn(
-                'size-[9px] rounded-full border-[1.5px] transition-all duration-300',
+                'size-2.25 rounded-full border-[1.5px] transition-all duration-300',
                 isActive ? 'scale-110 border-brand bg-brand' : 'border-content-faint'
               )}
             />

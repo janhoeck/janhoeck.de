@@ -4,7 +4,6 @@ import React from 'react'
 export const TimelineLine = () => (
   <span
     aria-hidden='true'
-    className='absolute bottom-[6px] left-[5px] top-[6px] w-0.5'
-    style={{ background: 'linear-gradient(#7f96b3, rgba(127,150,179,0.3))' }}
+    className='absolute inset-y-1.5 left-1.25 w-0.5 bg-linear-to-b from-brand to-brand/30'
   />
 )

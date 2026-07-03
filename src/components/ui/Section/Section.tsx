@@ -33,14 +33,14 @@ export const Section = forwardRef<HTMLElement, SectionProps>((props, ref) => {
   return (
     <Tag
       className={cn(
-        'relative isolate flex min-h-[100dvh] w-screen flex-col px-[clamp(24px,6vw,96px)] pb-24 pt-[92px]',
+        'relative isolate flex min-h-dvh w-screen flex-col px-gutter pb-24 pt-23',
         align === 'center' ? 'justify-center' : 'justify-start',
         className
       )}
       ref={ref as React.Ref<HTMLElement>}
       {...restProps}
     >
-      <div className={cn('mx-auto w-full max-w-[1180px]', innerClassName)}>{children}</div>
+      <div className={cn('mx-auto w-full max-w-page', innerClassName)}>{children}</div>
     </Tag>
   )
 })

@@ -14,11 +14,11 @@ export const Skill = (props: SkillProps) => {
   return (
     <div
       className={cn(
-        'flex items-center gap-[11px] rounded-xl border border-line bg-surface py-[11px] pl-3 pr-4 transition-all duration-200 ease-studio hover:-translate-y-0.5 hover:border-brand hover:bg-surface-2',
+        'flex items-center gap-2.75 rounded-xl border border-line bg-surface py-2.75 pl-3 pr-4 transition-all duration-200 ease-studio hover:-translate-y-0.5 hover:border-brand hover:bg-surface-2',
         className
       )}
     >
-      <Image src={imageSrc} alt='' width={26} height={26} className='size-[26px] object-contain' />
+      <Image src={imageSrc} alt='' width={26} height={26} className='size-6.5 object-contain' />
       <span className='text-sm font-medium text-content'>{label}</span>
     </div>
   )

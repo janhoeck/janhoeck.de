@@ -10,7 +10,7 @@ export const ContactSection = () => {
     <Section
       sectionKey='contact'
       label='Kontakt'
-      innerClassName='flex max-w-[760px] flex-col items-center gap-[26px] text-center'
+      innerClassName='flex max-w-narrow flex-col items-center gap-6.5 text-center'
     >
       <div {...revealProps(0)}>
         <Eyebrow index='05'>Kontakt</Eyebrow>
@@ -18,14 +18,14 @@ export const ContactSection = () => {
 
       <h2
         {...revealProps(1)}
-        className='m-0 font-display text-[clamp(40px,8vw,96px)] font-extrabold uppercase leading-[0.9] tracking-[-0.01em]'
+        className='font-display text-display-lg uppercase'
       >
         Lass uns etwas <span className='text-brand'>Gutes</span> bauen.
       </h2>
 
       <p
         {...revealProps(2)}
-        className='m-0 max-w-[52ch] text-[clamp(15px,1.8vw,19px)] leading-[1.6] text-content-dim'
+        className='max-w-[52ch] text-body-lg text-content-dim'
       >
         Ein Blick in den Code ist manchmal aussagekräftiger als jede Beschreibung. Schreib mir — ich
         freue mich auf neue Herausforderungen.
@@ -43,7 +43,7 @@ export const ContactSection = () => {
         <Socials />
       </div>
 
-      <div className='absolute bottom-7 left-0 right-0 flex items-center justify-between px-[clamp(24px,6vw,96px)] font-mono text-[11px] uppercase tracking-[0.12em] text-content-faint max-[860px]:static max-[860px]:mt-8 max-[860px]:flex-col max-[860px]:gap-2'>
+      <div className='absolute inset-x-0 bottom-7 flex items-center justify-between px-gutter font-mono text-2xs uppercase tracking-caps text-content-faint max-tablet:static max-tablet:mt-8 max-tablet:flex-col max-tablet:gap-2'>
         <span>© 2026 Jan Höck</span>
         <span>Senior Frontend Entwickler · Köln</span>
       </div>

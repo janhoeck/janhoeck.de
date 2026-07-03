@@ -14,7 +14,7 @@ export const TimelineCard = (props: TimelineCardProps) => {
   return (
     <Card
       className={cn(
-        'gap-0 rounded-[14px] border-line bg-surface px-5 py-[14px] shadow-none transition-[transform,border-color] duration-200 ease-studio hover:translate-x-1 hover:border-line-strong',
+        'gap-0 rounded-xl px-5 py-3.5 shadow-none transition-[transform,border-color] duration-200 ease-studio hover:translate-x-1 hover:border-line-strong',
         className
       )}
     >

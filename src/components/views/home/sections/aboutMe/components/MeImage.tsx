@@ -17,14 +17,11 @@ export const MeImage = (props: MeImageProps) => {
         alt='Porträtfoto von Jan Höck, Senior Frontend Entwickler'
         width={300}
         height={375}
-        className='aspect-[4/5] h-full w-full object-cover'
+        className='aspect-4/5 h-full w-full object-cover'
         style={{ filter: 'grayscale(0.15) contrast(1.02)' }}
       />
-      <div
-        className='pointer-events-none absolute inset-0'
-        style={{ background: 'linear-gradient(180deg, transparent 55%, rgba(27,27,29,0.75))' }}
-      />
-      <span className='absolute bottom-3.5 left-3.5 z-[2] rounded-[7px] border border-line-strong bg-[rgba(11,14,22,0.6)] px-2.5 py-[5px] font-mono text-[10px] uppercase tracking-[0.16em] text-content backdrop-blur-sm'>
+      <div className='pointer-events-none absolute inset-0 bg-linear-to-b from-base/0 from-55% to-base/75' />
+      <span className='absolute bottom-3.5 left-3.5 z-2 rounded-lg border border-line-strong bg-ink/60 px-2.5 py-1.25 font-mono text-2xs uppercase tracking-caps text-content backdrop-blur-sm'>
         Jan Höck · Köln
       </span>
     </div>

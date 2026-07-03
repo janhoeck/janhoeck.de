@@ -22,16 +22,14 @@ export const SectionCaption = (props: SectionCaptionProps) => {
     <div
       data-reveal=''
       className={cn(
-        'mb-[clamp(28px,5vh,56px)] flex items-baseline gap-[18px] border-b border-line pb-[18px]',
+        'mb-[clamp(28px,5vh,56px)] flex items-baseline gap-4.5 border-b border-line pb-4.5',
         className
       )}
     >
       <Eyebrow index={index}>{eyebrow}</Eyebrow>
-      <h2 className='m-0 font-display text-[clamp(32px,5vw,60px)] font-extrabold uppercase leading-[0.95] tracking-[-0.01em]'>
-        {children}
-      </h2>
+      <h2 className='font-display text-display-md uppercase'>{children}</h2>
       {count && (
-        <span className='ml-auto font-mono text-xs tracking-[0.1em] text-content-faint'>{count}</span>
+        <span className='ml-auto font-mono text-xs tracking-caps text-content-faint'>{count}</span>
       )}
     </div>
   )

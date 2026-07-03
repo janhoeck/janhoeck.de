@@ -14,7 +14,7 @@ export const Eyebrow = (props: EyebrowProps) => {
   return (
     <span
       className={cn(
-        'flex items-center gap-3 font-mono text-xs uppercase tracking-[0.28em] text-brand',
+        'flex items-center gap-3 font-mono text-xs uppercase tracking-caps-widest text-brand',
         className
       )}
     >

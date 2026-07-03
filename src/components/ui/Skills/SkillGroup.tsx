@@ -14,7 +14,7 @@ export const SkillGroup = (props: SkillGroupProps) => {
   return (
     <div className={cn('mb-[clamp(22px,3.4vh,40px)]', className)}>
       <div className='mb-4 flex items-center gap-3.5'>
-        <h3 className='m-0 whitespace-nowrap font-mono text-xs uppercase tracking-[0.2em] text-content-dim'>
+        <h3 className='whitespace-nowrap font-mono text-xs uppercase tracking-caps-wide text-content-dim'>
           {title}
         </h3>
         <span className='h-px flex-1 bg-line' />

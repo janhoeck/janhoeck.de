@@ -17,7 +17,7 @@ export const TimelineItem = (props: TimelineItemProps) => {
   return (
     <div className={cn('relative pb-[clamp(12px,1.8vh,22px)] last:pb-0', className)}>
       <TimelineDot />
-      <div className='mb-[5px] font-mono text-[11px] uppercase tracking-[0.12em] text-brand'>{when}</div>
+      <div className='mb-1.25 font-mono text-2xs uppercase tracking-caps text-brand'>{when}</div>
       <TimelineCard>{children}</TimelineCard>
     </div>
   )
