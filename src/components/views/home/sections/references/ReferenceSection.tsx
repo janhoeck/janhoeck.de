@@ -6,12 +6,16 @@ import { referencesConfig } from './referencesConfig'
 
 export const ReferenceSection = () => {
   return (
-    <Section sectionKey='reference'>
-      <SectionCaption>Referenzen</SectionCaption>
-      <div className='mt-8 grid grid-cols-1 gap-6 sm:mt-10 sm:grid-cols-2 sm:gap-8 md:mt-12 lg:grid-cols-3 xl:mt-14 xl:gap-10'>
-        {referencesConfig.map((reference) => (
+    <Section sectionKey='refs' label='Referenzen' align='start'>
+      <SectionCaption index='04' eyebrow='Ausgewählte Arbeiten' count='4 Projekte'>
+        Referenzen
+      </SectionCaption>
+
+      <div className='grid grid-cols-1 gap-5.5 sm:grid-cols-2 xl:grid-cols-4'>
+        {referencesConfig.map((reference, index) => (
           <ReferenceCard
             key={reference.title}
+            revealIndex={index + 1}
             {...reference}
           />
         ))}

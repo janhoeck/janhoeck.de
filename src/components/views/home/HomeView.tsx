@@ -1,17 +1,26 @@
 import { SectionsScroller } from '@/components/ui'
-import { AboutMeSection } from './sections/aboutMe'
-import { HeaderSection } from './sections/header'
 import React from 'react'
-import { ReferenceSection } from './sections/references'
+
+import { BackgroundFx } from './components/BackgroundFx'
+import { HeaderSection } from './sections/header'
+import { AboutMeSection } from './sections/aboutMe'
+import { SkillsSection } from './sections/skills'
 import { TimelineSection } from './sections/timeline'
+import { ReferenceSection } from './sections/references'
+import { ContactSection } from './sections/contact'
 
 export const HomeView = () => {
   return (
-    <SectionsScroller>
-      <HeaderSection />
-      <AboutMeSection />
-      <TimelineSection />
-      <ReferenceSection />
-    </SectionsScroller>
+    <>
+      <BackgroundFx />
+      <SectionsScroller>
+        <HeaderSection />
+        <AboutMeSection />
+        <SkillsSection />
+        <TimelineSection />
+        <ReferenceSection />
+        <ContactSection />
+      </SectionsScroller>
+    </>
   )
 }

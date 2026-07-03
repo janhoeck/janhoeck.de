@@ -1,5 +1,7 @@
 export type SectionType = {
   key: string
+  /** Short label shown next to the nav dot (e.g. "Über mich"). */
+  label?: string
 }
 
 export type SectionsScrollerContextType = {

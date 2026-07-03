@@ -1,7 +1,8 @@
 import { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
+  output: 'export',
+  images: { unoptimized: true },
 }
 
 module.exports = nextConfig

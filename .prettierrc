@@ -9,5 +9,7 @@
   "endOfLine": "lf",
   "printWidth": 120,
   "singleAttributePerLine": true,
-  "plugins": []
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindStylesheet": "./src/app/index.css",
+  "tailwindFunctions": ["cn", "cva", "twMerge"]
 }
