@@ -39,9 +39,11 @@ const ENTRIES: CustomTimelineItemProps[] = [
     organization: 'DeepL SE',
     jobTitle: 'Senior Frontend React Entwickler',
     tasks: [
-      'Verantwortlich für das Produkt DeepL Write',
-      'Software basierend auf Next.js (SSR)',
-      'Entwicklung mit React 19+ (Hooks, Context etc.)',
+      'Kernentwickler von DeepL Write: zentrale Features von der Beta bis zum Launch (Schreibstile & Tonalitäten, Revision Mode, LLM-basierte Content-Erstellung)',
+      'Migration des Frontends von Gatsby (Static Rendering) zu Next.js mit Full SSR, inkl. Performance-Messung und -Optimierung',
+      'Refactoring der gesamten Codebase für Performance und Skalierbarkeit, Aufbau einer modularen Paket-Architektur',
+      'Echtzeit-Übersetzungen im DeepL Translator mit RxJS und WebSockets',
+      'Enge teamübergreifende Zusammenarbeit mit Produkt, Design und Backend',
     ],
   },
 ]

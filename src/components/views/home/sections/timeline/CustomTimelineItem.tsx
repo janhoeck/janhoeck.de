@@ -23,7 +23,7 @@ export const CustomTimelineItem = (props: CustomTimelineItemProps) => {
       </h4>
       <div className={cn('text-body-sm text-content-dim', tasks && 'mb-2')}>{jobTitle}</div>
       {tasks && (
-        <ul className='flex flex-col gap-0.75 pl-4.25'>
+        <ul className='flex list-disc flex-col gap-0.75 pl-4.25'>
           {tasks.map((task) => (
             <li key={task} className='text-body-sm leading-[1.4] text-content-dim marker:text-brand'>
               {task}
