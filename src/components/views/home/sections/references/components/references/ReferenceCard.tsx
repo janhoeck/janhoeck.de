@@ -38,7 +38,7 @@ export const ReferenceCard = (props: ReferenceCardProps) => {
         />
       </div>
       <div className='flex flex-1 flex-col gap-2.5 px-5 pb-5 pt-4.5'>
-        <h4 className='text-lg font-bold text-content'>{title}</h4>
+        <h3 className='text-lg font-bold text-content'>{title}</h3>
         {description && (
           <p className='flex-1 text-body-sm text-content-dim'>{description}</p>
         )}

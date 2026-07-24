@@ -27,8 +27,8 @@ export const ContactSection = () => {
         {...revealProps(2)}
         className='max-w-[52ch] text-body-lg text-content-dim'
       >
-        Ein Blick in den Code ist manchmal aussagekräftiger als jede Beschreibung. Schreib mir — ich
-        freue mich auf neue Herausforderungen.
+        Du willst wissen, wie ich arbeite? Ein Blick in den Code sagt oft mehr als jede
+        Beschreibung. Schreib mir einfach — ich bin gespannt, was du vorhast.
       </p>
 
       <Link
@@ -43,10 +43,10 @@ export const ContactSection = () => {
         <Socials />
       </div>
 
-      <div className='absolute inset-x-0 bottom-7 flex items-center justify-between px-gutter font-mono text-2xs uppercase tracking-caps text-content-faint max-tablet:static max-tablet:mt-8 max-tablet:flex-col max-tablet:gap-2'>
+      <footer className='absolute inset-x-0 bottom-7 flex items-center justify-between px-gutter font-mono text-2xs uppercase tracking-caps text-content-faint max-tablet:static max-tablet:mt-8 max-tablet:flex-col max-tablet:gap-2'>
         <span>© 2026 Jan Höck</span>
         <span>Senior Frontend Entwickler · Köln</span>
-      </div>
+      </footer>
     </Section>
   )
 }

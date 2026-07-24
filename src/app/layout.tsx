@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Barlow, Barlow_Semi_Condensed, Space_Mono } from 'next/font/google'
 import { twMerge } from 'tailwind-merge'
 
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: '%s | Jan Höck',
   },
   description:
-    'Persönliche Website von Jan Höck — Senior Frontend Entwickler aus dem Raum Köln. Spezialisiert auf React, Next.js und TypeScript. Lebenslauf, Skills und Referenzen.',
+    'Persönliche Website von Jan Höck — Senior Frontend Entwickler aus dem Raum Köln, zuhause in React, Next.js und TypeScript. Mit Lebenslauf, Skills und Referenzen.',
   keywords: [
     'Jan Höck',
     'Senior Frontend Entwickler',
@@ -47,18 +47,20 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'profile',
+    firstName: 'Jan',
+    lastName: 'Höck',
     locale: 'de_DE',
     siteName: 'Jan Höck',
     url: 'https://janhoeck.de',
     title: 'Jan Höck — Senior Frontend Entwickler',
     description:
-      'Persönliche Website von Jan Höck — Senior Frontend Entwickler aus dem Raum Köln. Spezialisiert auf React, Next.js und TypeScript.',
+      'Persönliche Website von Jan Höck — Senior Frontend Entwickler aus dem Raum Köln, zuhause in React, Next.js und TypeScript.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Jan Höck — Senior Frontend Entwickler',
     description:
-      'Persönliche Website von Jan Höck — Senior Frontend Entwickler aus dem Raum Köln. Spezialisiert auf React, Next.js und TypeScript.',
+      'Persönliche Website von Jan Höck — Senior Frontend Entwickler aus dem Raum Köln, zuhause in React, Next.js und TypeScript.',
   },
   robots: {
     index: true,
@@ -77,39 +79,69 @@ export const metadata: Metadata = {
   },
 }
 
-const personSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  '@id': 'https://janhoeck.de/#person',
-  name: 'Jan Höck',
-  jobTitle: 'Senior Frontend Entwickler',
-  url: 'https://janhoeck.de',
-  image: 'https://janhoeck.de/assets/me.jpg',
-  sameAs: ['https://github.com/janhoeck'],
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Köln',
-    addressCountry: 'DE',
-  },
-  knowsAbout: [
-    'React',
-    'Next.js',
-    'TypeScript',
-    'JavaScript',
-    'HTML5',
-    'CSS3',
-    'Web Performance',
-    'Frontend Architecture',
-  ],
+export const viewport: Viewport = {
+  themeColor: '#1b1b1d',
+  colorScheme: 'dark',
 }
 
-const websiteSchema = {
+const structuredData = {
   '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  url: 'https://janhoeck.de',
-  name: 'Jan Höck',
-  inLanguage: 'de-DE',
-  author: { '@id': 'https://janhoeck.de/#person' },
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://janhoeck.de/#person',
+      name: 'Jan Höck',
+      givenName: 'Jan',
+      familyName: 'Höck',
+      jobTitle: 'Senior Frontend Entwickler',
+      description:
+        'Senior Frontend Entwickler aus dem Raum Köln, spezialisiert auf React, Next.js und TypeScript.',
+      url: 'https://janhoeck.de',
+      image: 'https://janhoeck.de/assets/me.jpg',
+      email: 'mailto:jan.hoeck@gmx.net',
+      sameAs: ['https://github.com/janhoeck'],
+      worksFor: {
+        '@type': 'Organization',
+        name: 'DeepL SE',
+        url: 'https://www.deepl.com',
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Köln',
+        addressCountry: 'DE',
+      },
+      knowsAbout: [
+        'React',
+        'Next.js',
+        'TypeScript',
+        'JavaScript',
+        'HTML5',
+        'CSS3',
+        'Web Performance',
+        'Frontend Architecture',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://janhoeck.de/#website',
+      url: 'https://janhoeck.de',
+      name: 'Jan Höck',
+      description:
+        'Persönliche Website von Jan Höck — Senior Frontend Entwickler aus dem Raum Köln.',
+      inLanguage: 'de-DE',
+      author: { '@id': 'https://janhoeck.de/#person' },
+      publisher: { '@id': 'https://janhoeck.de/#person' },
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': 'https://janhoeck.de/#profilepage',
+      url: 'https://janhoeck.de',
+      name: 'Jan Höck — Senior Frontend Entwickler',
+      inLanguage: 'de-DE',
+      isPartOf: { '@id': 'https://janhoeck.de/#website' },
+      mainEntity: { '@id': 'https://janhoeck.de/#person' },
+    },
+  ],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -121,11 +153,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-        />
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
       <body>{children}</body>

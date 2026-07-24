@@ -32,6 +32,7 @@ export const Section = forwardRef<HTMLElement, SectionProps>((props, ref) => {
 
   return (
     <Tag
+      id={sectionKey}
       className={cn(
         'relative isolate flex min-h-dvh w-screen flex-col px-gutter pb-24 pt-23',
         align === 'center' ? 'justify-center' : 'justify-start',

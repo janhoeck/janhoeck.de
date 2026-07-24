@@ -17,10 +17,10 @@ export const CustomTimelineItem = (props: CustomTimelineItemProps) => {
 
   return (
     <TimelineItem when={timePeriod}>
-      <h4 className='mb-0.5 font-bold text-content'>
+      <h3 className='mb-0.5 font-bold text-content'>
         {organization}
         {organizationSub && <span className='font-normal text-content-faint'> {organizationSub}</span>}
-      </h4>
+      </h3>
       <div className={cn('text-body-sm text-content-dim', tasks && 'mb-2')}>{jobTitle}</div>
       {tasks && (
         <ul className='flex list-disc flex-col gap-0.75 pl-4.25'>

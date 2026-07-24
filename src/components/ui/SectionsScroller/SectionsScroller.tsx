@@ -223,7 +223,7 @@ const SectionsScrollerInternal = (props: SectionsScrollerProps) => {
         Jan&nbsp;Höck
       </button>
 
-      <motion.div
+      <motion.main
         animate={{ y: `-${activeSectionIndex * 100}vh` }}
         transition={{ type: 'spring', stiffness: 120, damping: 26, mass: 0.9 }}
         onAnimationStart={() => {
@@ -238,7 +238,7 @@ const SectionsScrollerInternal = (props: SectionsScrollerProps) => {
             {React.cloneElement(child)}
           </SectionsScrollerItem>
         ))}
-      </motion.div>
+      </motion.main>
 
       <SectionIndicator />
     </div>

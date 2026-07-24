@@ -18,7 +18,7 @@ export const HeaderSection = () => {
       >
         <span className='inline-flex items-center gap-2 text-brand'>
           <span className='size-1.75 rounded-full bg-brand animate-pulse-ring' />
-          Verfügbar für Projekte
+          Offen für Projekte
         </span>
         <span>Köln, DE</span>
         <span>EST. 1996</span>
@@ -46,7 +46,7 @@ export const HeaderSection = () => {
         <span className='relative h-8.5 w-5.5 rounded-xl border-[1.5px] border-content-faint'>
           <span className='absolute left-1/2 top-1.75 h-1.5 w-0.75 -translate-x-1/2 rounded-sm bg-brand animate-mouse-wheel' />
         </span>
-        <span>Finde mehr heraus</span>
+        <span>Scroll einfach weiter</span>
       </div>
     </Section>
   )

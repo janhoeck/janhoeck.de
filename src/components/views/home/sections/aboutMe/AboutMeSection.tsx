@@ -7,7 +7,7 @@ import { revealProps } from '../../components/reveal'
 const STATS = [
   { n: '16+', l: 'Jahre Code' },
   { n: '10+', l: 'Jahre React' },
-  { n: '200k+', l: 'Nutzer skaliert' },
+  { n: '200k+', l: 'Gleichzeitige Nutzer' },
 ]
 
 export const AboutMeSection = () => {
@@ -44,9 +44,10 @@ export const AboutMeSection = () => {
             className='mb-4.5 max-w-copy text-body text-content-dim'
           >
             Mit 18 habe ich meine Ausbildung zum{' '}
-            <strong>Fachinformatiker für Anwendungsentwicklung</strong> begonnen. Trotzdem habe ich
-            dort erst einmal alle Bereiche des Unternehmens kennengelernt – rückblickend Gold wert,
-            um zu verstehen, wie alles ineinandergreift. In der Entwicklung habe ich zuerst viel
+            <strong>Fachinformatiker für Anwendungsentwicklung</strong> begonnen. Statt direkt
+            loszucoden, habe ich dort erst einmal alle Bereiche des Unternehmens durchlaufen –
+            rückblickend Gold wert, wenn man verstehen will, wie alles ineinandergreift. In der
+            Entwicklung habe ich zuerst viel
             Backend gemacht, dann bin ich in die Webentwicklung reingerutscht – und bei{' '}
             <strong>ReactJS</strong> bis heute geblieben. Noch während der Ausbildung war ich für
             unsere gesamte Webanwendung verantwortlich, danach habe ich als{' '}
